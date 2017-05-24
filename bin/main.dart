@@ -24,7 +24,7 @@ main() async {
   builder.route('/preflight', () => 'preflight',
       methods: ['OPTIONS']).wrap(new WrapCors(options2));
 
-  Configuration conf = new Configuration();
+  Jaguar conf = new Jaguar();
   conf.addApi(builder.build());
-  await serve(conf);
+  await conf.serve();
 }
