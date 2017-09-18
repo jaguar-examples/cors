@@ -6,14 +6,16 @@ import 'package:jaguar/jaguar.dart';
 @Api(path: '/api')
 class Routes {
   @Get()
-  String get(Context ctx) => 'Hello buddy!';
-  
+  Response<String> get(Context ctx) => Response.json('Hello buddy!');
+
   @Post()
-  Future<String> post(Context ctx) => ctx.req.bodyAsText();
+  Future<Response<String>> post(Context ctx) async =>
+      Response.json(await ctx.req.bodyAsJson());
 }
 
 main() async {
-  final server = new Jaguar();
+  final server = new Jaguar(port: 8000);
   server.addApiReflected(new Routes());
+  server.log.onRecord.listen(print);
   await server.serve();
 }

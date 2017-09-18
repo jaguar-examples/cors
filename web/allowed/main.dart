@@ -14,17 +14,19 @@ class StatusElement {
 
   void mount(Element parent) {
     final String innerHtml = '''
-    <div>$title</div>
-    <div>
+    <div class="title">$title</div>
+    <div class="field">
       <div>Response: </div>
       <div>${response.body}</div>
     </div>
-    <div>
+    <div class="field">
       <div>Status: </div>
       <div>${response.statusCode}</div>
     </div>
     ''';
-    final el = new DivElement()..innerHtml = innerHtml;
+    final el = new DivElement()
+      ..classes.add('status')
+      ..innerHtml = innerHtml;
     parent.append(el);
   }
 }
@@ -33,10 +35,13 @@ main() async {
   final Element body = querySelector('body');
   final jClient = new JsonClient(new BrowserClient());
 
-  new StatusElement('Local Get', await jClient.get('/api')).mount(body);
+  new StatusElement('Local Get', await jClient.get('/api/')).mount(body);
 
   new StatusElement(
-          'Local Post', await jClient.post('/api', body: 'Posting buddy!'))
+          'Local Post', await jClient.post('/api/', body: 'Posting buddy!'))
+      .mount(body);
+
+  new StatusElement('Cors Get', await jClient.get('http://foreign.com/api/'))
       .mount(body);
 
   //TODO
