@@ -6,9 +6,11 @@ import 'package:jaguar_cors/jaguar_cors.dart';
 
 abstract class CorsHelper {
   static const options1 = const CorsOptions(
+      // Allow CORS requests from mine.com
       allowedOrigins: const ['http://mine.com'],
-      // allowedHeaders: const ['X-Requested-With'],
+      // Allow all headers
       allowAllHeaders: true,
+      // Allow all methods
       allowAllMethods: true);
 
   Cors cors(Context ctx) => new Cors(options1);
