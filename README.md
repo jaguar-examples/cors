@@ -2,9 +2,45 @@
 
 Example demonstrating Cross-Origin resource sharing (CORS) using Jaguar.dart
 
-# Setup
+The aim of this example is to demonstrate CORS capabilities of Jaguar. 
 
+# Explanation
 
+## Implementation details
+
+The example contains two servers and a client.
+
+### Main server (Local server)
+
+Main server contains non-CORS GET and POST method on path `/api`.
+
+**Source**: bin/main.dart
+
+### Foreign server
+
+Foreign server contains CORS GET and POST methods on path `/api`.
+
+**Source**: bin/foreign.dart
+
+## Domains
+
+To demonstrate CORS capabilities, three domains muse be used:
+
+* mine.com
+* foreign.com
+* malicious.com
+
+### Foreign domain
+
+### Mine domain
+
+Mine domain uses the CORS methods of foreign domain. Routes on foreign domain are programmed to allow CORS requests from
+*mine.com* domain. These calls must succeed and display expect output. 
+
+### Malicious domain
+
+Mailicious domain tries to use the CORS methods of foreign domain. But routes on foreign domain do not allow CORS requests
+from domains other than *mine.com* domain. All these calls must fail with 403 status code.
 
 # Testing on Linux
 

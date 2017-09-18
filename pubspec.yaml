@@ -7,8 +7,7 @@ environment:
 
 dependencies:
   jaguar: ^0.6.13
-  jaguar_cors:
-    path: ../../jaguar_cors
+  jaguar_cors: ^0.5.3
   jaguar_client:
   # cookies:
 
@@ -16,8 +15,6 @@ dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
 
-# Uncomment the following in sdk 1.24+ to make pub serve
-# use dartdevc (webdev.dartlang.org/tools/dartdevc).
 web:
   compiler:
     debug: dartdevc

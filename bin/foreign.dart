@@ -19,14 +19,14 @@ class Routes extends Object with CorsHelper {
   @Route(methods: const ['GET', 'OPTIONS'])
   @WrapOne(#cors)
   Response<String> get(Context ctx) {
-    if(ctx.req.method != 'GET') return null;
+    if (ctx.req.method != 'GET') return null;
     return Response.json('Hello foreigner!');
   }
 
   @Route(methods: const ['POST', 'OPTIONS'])
   @WrapOne(#cors)
   Future<Response<String>> post(Context ctx) async {
-    if(ctx.req.method != 'POST') return null;
+    if (ctx.req.method != 'POST') return null;
     return Response.json(await ctx.req.bodyAsJson());
   }
 }
