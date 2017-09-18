@@ -35,6 +35,8 @@ main() async {
   final Element body = querySelector('body');
   final jClient = new JsonClient(new BrowserClient());
 
+  // Positive tests
+
   new StatusElement('Local Get', await jClient.get('/api/')).mount(body);
 
   new StatusElement(
@@ -43,6 +45,14 @@ main() async {
 
   new StatusElement('Cors Get', await jClient.get('http://foreign.com/api/'))
       .mount(body);
+
+  new StatusElement(
+          'Cors Post',
+          await jClient.post('http://foreign.com/api/',
+              body: 'Posting foreigner!'))
+      .mount(body);
+
+  // Negative tests
 
   //TODO
 }
