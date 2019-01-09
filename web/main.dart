@@ -24,7 +24,7 @@ class StatusElement {
       <div>${response.statusCode}</div>
     </div>
     ''';
-    final el = new DivElement()
+    final el = DivElement()
       ..classes.add('status')
       ..innerHtml = innerHtml;
     parent.append(el);
@@ -33,20 +33,20 @@ class StatusElement {
 
 main() async {
   final Element body = querySelector('body');
-  final jClient = new JsonClient(new BrowserClient());
+  final jClient = JsonClient(BrowserClient());
 
   // Positive tests
 
-  new StatusElement('Local Get', await jClient.get('/api/')).mount(body);
+  StatusElement('Local Get', await jClient.get('/api/')).mount(body);
 
-  new StatusElement(
+  StatusElement(
           'Local Post', await jClient.post('/api/', body: 'Posting buddy!'))
       .mount(body);
 
-  new StatusElement('Cors Get', await jClient.get('http://foreign.com/api/'))
+  StatusElement('Cors Get', await jClient.get('http://foreign.com/api/'))
       .mount(body);
 
-  new StatusElement(
+  StatusElement(
           'Cors Post',
           await jClient.post('http://foreign.com/api/',
               body: 'Posting foreigner!'))

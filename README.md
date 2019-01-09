@@ -24,7 +24,7 @@ Foreign server contains CORS GET and POST methods on path `/api`.
 
 ## Domains
 
-To demonstrate CORS capabilities, three domains muse be used:
+To demonstrate CORS capabilities, three domains must be used:
 
 * mine.com
 * foreign.com
@@ -34,13 +34,15 @@ To demonstrate CORS capabilities, three domains muse be used:
 
 ### Mine domain
 
-Mine domain uses the CORS methods of foreign domain. Routes on foreign domain are programmed to allow CORS requests from
-*mine.com* domain. These calls must succeed and display expect output. 
+Mine domain uses the CORS methods of foreign domain. Routes on foreign
+domain are programmed to allow CORS requests from *mine.com* domain. These
+calls must succeed and display expect output.
 
 ### Malicious domain
 
-Mailicious domain tries to use the CORS methods of foreign domain. But routes on foreign domain do not allow CORS requests
-from domains other than *mine.com* domain. All these calls must fail with 403 status code.
+Mailicious domain tries to use the CORS methods of foreign domain. But
+routes on foreign domain do not allow CORS requests from domains other
+than *mine.com* domain. All these calls must fail with 403 status code.
 
 # Testing on Linux
 

@@ -1,21 +1,14 @@
 name: jaguar_cors_demo
 description: A demo of handling CORS using Jaguar
-version: 0.0.1
+version: 2.4.1
 
 environment:
-  sdk: '>=1.19.0 <2.0.0'
+  sdk: '>=2.0.0 <3.0.0'
 
 dependencies:
-  jaguar: ^0.6.13
-  jaguar_cors: ^0.5.3
+  jaguar: ^2.4.1
+  jaguar_cors: ^2.4.1
   jaguar_client:
-  # cookies:
+  jaguar_reflect:
 
 dev_dependencies:
-  browser: ^0.10.0
-  dart_to_js_script_rewriter: ^1.0.1
-
-web:
-  compiler:
-    debug: dartdevc
-
