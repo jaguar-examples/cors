@@ -29,7 +29,7 @@ class Routes extends Controller {
 
   @override
   void before(Context ctx) {
-    Cors(corsOptions).call(ctx);
+    cors(ctx, corsOptions);
   }
 }
 

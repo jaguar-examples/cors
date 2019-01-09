@@ -7,7 +7,7 @@ environment:
 
 dependencies:
   jaguar: ^2.4.1
-  jaguar_cors: ^2.4.1
+  jaguar_cors: ^2.4.2
   jaguar_client:
   jaguar_reflect:
 
